@@ -393,6 +393,13 @@ h4 {
     color: #61a48a;
 }
 
+.white-text {
+    color: white;
+    text-decoration: none;
+    font-family: "Prompt", sans-serif;
+    font-weight: normal;
+}   
+
 
 /* Mobile view adjustments */
 @media (max-width: 768px) {
