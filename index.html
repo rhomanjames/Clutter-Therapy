@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clutter Therapy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="https://res.cloudinary.com/usamobileappsllc/image/upload/v1725209922/Original_size_Original_size_Living_in_shalom_1080_350_px_h17fze.png" height="100px" />
+        </div>
+        <div class="account-info">
+            <button id="loginBtn">Donate</button>
+        </div>
+        <!-- Add Hamburger Menu Button -->
+        <button class="hamburger-menu" id="hamburgerMenu">
+            ☰
+        </button>
+    </nav>
+
+    <div class="container">
+        <div class="sidebar-container">
+            <aside class="sidebar">
+                <ul>
+
+                    <button class="close-menu" id="closeMenu">Close Menu</button>
+
+                    
+                    <li id="hamburger-donate"><a href="#" class="section-link" data-section="design-quiz">Donate</a></li>
+                    <h3>Declutter Challenge</h3>
+                    <li><a href="#" class="section-link" data-section="entryway">Entry-Way</a></li>
+                    <li><a href="#" class="section-link" data-section="living-room">Living Room</a></li>
+                    <li><a href="#" class="section-link" data-section="kitchen">Kitchen</a></li>
+                    <li><a href="#" class="section-link" data-section="laundry-room">Laundry Room</a></li>
+                    <li><a href="#" class="section-link" data-section="pantry">Pantry</a></li>
+                    <li><a href="#" class="section-link" data-section="closets">Closets</a></li>
+                    <li><a href="#" class="section-link" data-section="bedrooms">Bedrooms</a></li>
+                    <li><a href="#" class="section-link" data-section="bathrooms">Bathrooms</a></li>
+                    <li><a href="#" class="section-link" data-section="basements-attics">Basements/Attics</a></li>
+                    <li><a href="#" class="section-link" data-section="garages">Garages</a></li>
+                    <li><a href="#" class="section-link" data-section="front-back-yards">Front/Back Yards</a></li>
+
+                    <h3>Design Tools</h3>
+                    <li><a href="#" class="section-link" data-section="color-quiz">Find Your Color Palette</a></li>
+
+                    <li><a href="#" class="section-link" data-section="design-quiz">Find Your Design Style</a></li>
+                    
+                </ul>
+            </aside>
+        </div>
+
+        <div class="dashboard">
+
+         <!-- Floating Music Player -->
+            <div class="music-player" id="musicPlayer">
+                <div class="music-info">
+                    <p class="song-title" id="songTitle">Song Name</p>
+                </div>
+                <div class="controls">
+                    <button id="prevBtn">⏮</button>
+                    <button id="playPauseBtn">⏯</button>
+                    <button id="nextBtn">⏭</button>
+                </div>
+            </div>
+
+            <!-- Audio Element (hidden) -->
+            <audio id="audioPlayer"></audio>
+
+
+
+
+            <div class="sections">
+
+                <div class="section" id="color-quiz" style="display: none;">
+                    <div class="quiz-container">
+                        <h2>Discover Your Ideal Color Palette</h2>
+                        <form id="quiz-form">
+                            <!-- Question 1 -->
+                            <div class="quiz-question">
+                                <p>1. What type of space do you want your home to feel like?</p>
+                                <label><input type="radio" name="question1" value="open-airy"> Open and airy</label><br>
+                                <label><input type="radio" name="question1" value="cozy-intimate"> Cozy and intimate</label><br>
+                                <label><input type="radio" name="question1" value="luxurious"> Luxurious and grand</label><br>
+                                <label><input type="radio" name="question1" value="functional"> Functional and efficient</label>
+                            </div>
+                
+                            <!-- Question 2 -->
+                            <div class="quiz-question">
+                                <p>2. How do you like to incorporate natural elements in your home?</p>
+                                <label><input type="radio" name="question2" value="plants"> With plenty of plants and greenery</label><br>
+                                <label><input type="radio" name="question2" value="wood"> With natural wood accents and textures</label><br>
+                                <label><input type="radio" name="question2" value="stone"> With stone or metal elements</label><br>
+                                <label><input type="radio" name="question2" value="minimal"> I prefer minimal natural elements</label>
+                            </div>
+                
+                            <!-- Question 3 -->
+                            <div class="quiz-question">
+                                <p>3. How much natural light does your space receive?</p>
+                                <label><input type="radio" name="question3" value="abundant"> Abundant, with large windows or skylights</label><br>
+                                <label><input type="radio" name="question3" value="moderate"> Moderate, some natural light during the day</label><br>
+                                <label><input type="radio" name="question3" value="low"> Low, mainly relies on artificial lighting</label><br>
+                            </div>
+                
+                            <!-- Question 4 -->
+                            <div class="quiz-question">
+                                <p>4. What is your preferred color temperature for lighting?</p>
+                                <label><input type="radio" name="question4" value="warm"> Warm and soft</label><br>
+                                <label><input type="radio" name="question4" value="neutral-light"> Neutral, balanced light</label><br>
+                                <label><input type="radio" name="question4" value="cool"> Cool and bright</label><br>
+                            </div>
+                
+                            <!-- Question 5 -->
+                            <div class="quiz-question">
+                                <p>5. How do you feel about bold colors in your home?</p>
+                                <label><input type="radio" name="question5" value="love-bold"> I love them! They add personality and energy.</label><br>
+                                <label><input type="radio" name="question5" value="like-accents"> I like them as accents but not too much.</label><br>
+                                <label><input type="radio" name="question5" value="prefer-muted"> I prefer more muted, subtle tones.</label><br>
+                            </div>
+                
+                            <!-- Question 6 -->
+                            <div class="quiz-question">
+                                <p>6. How would you describe your personal style?</p>
+                                <label><input type="radio" name="question6" value="modern"> Modern and sleek</label><br>
+                                <label><input type="radio" name="question6" value="traditional"> Traditional and classic</label><br>
+                                <label><input type="radio" name="question6" value="eclectic"> Eclectic and diverse</label><br>
+                                <label><input type="radio" name="question6" value="minimalist"> Minimalist and clean</label>
+                            </div>
+                
+                            <!-- Question 7 -->
+                            <div class="quiz-question">
+                                <p>7. How do you want your home to feel when you walk in?</p>
+                                <label><input type="radio" name="question7" value="welcoming"> Welcoming and inviting</label><br>
+                                <label><input type="radio" name="question7" value="serene"> Serene and calming</label><br>
+                                <label><input type="radio" name="question7" value="energized"> Energized and lively</label><br>
+                                <label><input type="radio" name="question7" value="organized"> Organized and tidy</label>
+                            </div>
+                
+                            <!-- Question 8 -->
+                            <div class="quiz-question">
+                                <p>8. What type of textures do you prefer in your home decor?</p>
+                                <label><input type="radio" name="question8" value="soft"> Soft and plush</label><br>
+                                <label><input type="radio" name="question8" value="smooth"> Smooth and sleek</label><br>
+                                <label><input type="radio" name="question8" value="rough"> Rough and natural</label><br>
+                                <label><input type="radio" name="question8" value="mixed"> A mix of different textures</label>
+                            </div>
+                
+                            <button type="button" onclick="submitColorQuiz()">Submit Quiz</button>
+                        </form>
+                
+                        <!-- Result Display -->
+                        <div id="quiz-result" style="display:none;">
+                            <h3>Your Ideal Color Palettes:</h3>
+                            <div id="palette-options" class="palette-options"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section" id="design-quiz" style="display: none;">
+                <div class="quiz-container">
+                    <h2>Discover Your Ideal Design Style</h2>
+                    <form id="quiz-form">
+                        <!-- Question 1 -->
+                        <div class="quiz-question">
+                            <p>1. How do you typically feel about your stress levels at home?</p>
+                            <label><input type="radio" name="question1" value="low-stress"> I feel relaxed and calm.</label><br>
+                            <label><input type="radio" name="question1" value="moderate-stress"> I have a moderate amount of stress.</label><br>
+                            <label><input type="radio" name="question1" value="high-stress"> I often feel stressed at home.</label><br>
+                        </div>
+            
+                        <!-- Question 2 -->
+                        <div class="quiz-question">
+                            <p>2. Do you have children living at home?</p>
+                            <label><input type="radio" name="question2" value="no-kids"> No</label><br>
+                            <label><input type="radio" name="question2" value="young-kids"> Yes, young children</label><br>
+                            <label><input type="radio" name="question2" value="older-kids"> Yes, older children or teenagers</label><br>
+                        </div>
+            
+                        <!-- Question 3 -->
+                        <div class="quiz-question">
+                            <p>3. How much time do you spend at home?</p>
+                            <label><input type="radio" name="question3" value="little-time"> I’m rarely at home; I’m always on the go.</label><br>
+                            <label><input type="radio" name="question3" value="moderate-time"> I spend a moderate amount of time at home.</label><br>
+                            <label><input type="radio" name="question3" value="much-time"> I spend most of my time at home.</label><br>
+                        </div>
+            
+                        <!-- Question 4 -->
+                        <div class="quiz-question">
+                            <p>4. How often do you cook at home?</p>
+                            <label><input type="radio" name="question4" value="rarely-cook"> Rarely, I mostly eat out or get takeout.</label><br>
+                            <label><input type="radio" name="question4" value="sometimes-cook"> Sometimes, I cook a few times a week.</label><br>
+                            <label><input type="radio" name="question4" value="often-cook"> Often, I cook most of my meals at home.</label><br>
+                        </div>
+            
+                        <!-- Question 5 -->
+                        <div class="quiz-question">
+                            <p>5. How do you feel about changing your home’s style frequently?</p>
+                            <label><input type="radio" name="question5" value="never-change"> I prefer to keep things the same for years.</label><br>
+                            <label><input type="radio" name="question5" value="occasionally-change"> I like to make occasional updates or changes.</label><br>
+                            <label><input type="radio" name="question5" value="frequently-change"> I enjoy changing styles frequently.</label><br>
+                        </div>
+            
+                        <!-- Question 6 -->
+                        <div class="quiz-question">
+                            <p>6. What is your ideal level of cleanliness and organization at home?</p>
+                            <label><input type="radio" name="question6" value="minimalist"> I prefer minimal clutter and lots of organization.</label><br>
+                            <label><input type="radio" name="question6" value="moderately-organized"> I like some organization, but I don’t mind a bit of mess.</label><br>
+                            <label><input type="radio" name="question6" value="relaxed"> I’m relaxed about cleanliness and don’t stress too much about mess.</label><br>
+                        </div>
+            
+                        <!-- Question 7 -->
+                        <div class="quiz-question">
+                            <p>7. How important is comfort in your home decor?</p>
+                            <label><input type="radio" name="question7" value="high-comfort"> Very important; comfort is my top priority.</label><br>
+                            <label><input type="radio" name="question7" value="moderate-comfort"> Moderately important; I balance comfort with style.</label><br>
+                            <label><input type="radio" name="question7" value="low-comfort"> Not very important; I prioritize aesthetics over comfort.</label><br>
+                        </div>
+            
+                        <!-- Question 8 -->
+                        <div class="quiz-question">
+                            <p>8. Do you enjoy entertaining guests at your home?</p>
+                            <label><input type="radio" name="question8" value="never-entertain"> Rarely, I prefer my home to be a private space.</label><br>
+                            <label><input type="radio" name="question8" value="sometimes-entertain"> Sometimes, I enjoy having guests over occasionally.</label><br>
+                            <label><input type="radio" name="question8" value="often-entertain"> Often, I love hosting gatherings and parties.</label><br>
+                        </div>
+            
+                        <!-- Question 9 -->
+                        <div class="quiz-question">
+                            <p>9. How do you feel about having a lot of decor and accessories in your home?</p>
+                            <label><input type="radio" name="question9" value="minimal-decor"> I prefer a minimal look with few accessories.</label><br>
+                            <label><input type="radio" name="question9" value="balanced-decor"> I like a balanced amount of decor and accessories.</label><br>
+                            <label><input type="radio" name="question9" value="maximal-decor"> I love having a lot of decor and accessories to personalize my space.</label><br>
+                        </div>
+            
+                        <!-- Question 10 -->
+                        <div class="quiz-question">
+                            <p>10. What is your preferred level of maintenance for your home decor?</p>
+                            <label><input type="radio" name="question10" value="low-maintenance"> Low maintenance; I don’t want to spend much time on upkeep.</label><br>
+                            <label><input type="radio" name="question10" value="moderate-maintenance"> Moderate maintenance; I don’t mind some upkeep.</label><br>
+                            <label><input type="radio" name="question10" value="high-maintenance"> High maintenance; I am willing to spend time keeping things looking great.</label><br>
+                        </div>
+            
+                        <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+                    </form>
+            
+                    <!-- Result Display -->
+                    <div id="quiz-result" >
+                        <h3>Your Ideal Design Style:</h3>
+                        <p id="result-text"></p>
+                    </div>
+                </div>
+                </div>
+                <!-- Example Section: Entry-Way -->
+                <div class="section" id="entryway" style="display: block;">
+                    <h2>Entry Way</h2>
+                    <video width="700px" src="entryway-intro.mp4" controls></video>
+                    <p>The entry-way is the first impression of your home, and a clutter-free space can make you and your guests feel welcomed right away. It's easy to let shoes, coats, and everyday items accumulate here, turning it into a chaotic zone. Start by eliminating what's unnecessary and creating designated spaces for the essentials. Remember, the key is consistency; keep only what you need, and resist the urge to let this space become a catch-all for miscellaneous items. Decluttering your entry-way will set a positive tone every time you walk through the door!</p>
+
+                    <!-- Checklist -->
+                    <div class="checklist">
+                        <h3>Key Tasks</h3>
+                        <ul>
+                            <li><input type="checkbox" id="entryway-task1"><label for="entryway-task1"> Clear out shoes and coats.</label></li>
+                            <li><input type="checkbox" id="entryway-task2"><label for="entryway-task2"> Organize mail and keys.</label></li>
+                            <li><input type="checkbox" id="entryway-task3"><label for="entryway-task3"> Clean floors and surfaces.</label></li>
+                            <li><input type="checkbox" id="entryway-task4"><label for="entryway-task4"> Remove unnecessary items from hooks and shelves.</label></li>
+                            <li><input type="checkbox" id="entryway-task5"><label for="entryway-task5"> Declutter the shoe rack.</label></li>
+                            <li><input type="checkbox" id="entryway-task6"><label for="entryway-task6"> Donate unused umbrellas and accessories.</label></li>
+                            <li><input type="checkbox" id="entryway-task7"><label for="entryway-task7"> Dust off light fixtures and corners.</label></li>
+                            <li><input type="checkbox" id="entryway-task8"><label for="entryway-task8"> Wipe down doors and handles.</label></li>
+                            <li><input type="checkbox" id="entryway-task9"><label for="entryway-task9"> Reassess furniture and decor placement.</label></li>
+                            <li><input type="checkbox" id="entryway-task10"><label for="entryway-task10"> Install a new welcome mat.</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions and Feedback -->
+                    <label for="entryway-question">What concerns do you have about decluttering your entryway?</label>
+                    <textarea id="entryway-question" rows="4"></textarea>
+                    <label for="entryway-feedback">Is there anything holding you back from decluttering?</label>
+                    <textarea id="entryway-feedback" rows="4"></textarea>
+                    <label for="entryway-obstacles">How can you overcome those obstacles?</label>
+                    <textarea id="entryway-obstacles" rows="4"></textarea>
+                </div>
+
+                <!-- Example Section: Living Room -->
+                <div class="section" id="living-room" style="display: none;">
+                    <h2>Living Room</h2>
+                    <video width="700px" src="living-room-intro.mp4" controls></video>
+                    <p>Your living room is a place for relaxation and gathering with family and friends. However, it often ends up cluttered with books, magazines, toys, and electronics. A common mistake is to use this space as a storage area, which can make it feel crowded and stressful. Focus on clearing surfaces and organizing items into designated storage solutions. Remember to keep only the things that add to the comfort and functionality of your living room. By decluttering, you'll create a more inviting and serene space where everyone can unwind and enjoy.</p>
+
+                    <!-- Checklist -->
+                    <div class="checklist">
+                        <h3>Key Tasks</h3>
+                        <ul>
+                            <li><input type="checkbox" id="living-room-task1"><label for="living-room-task1"> Remove clutter from coffee table and shelves.</label></li>
+                            <li><input type="checkbox" id="living-room-task2"><label for="living-room-task2"> Organize books and magazines.</label></li>
+                            <li><input type="checkbox" id="living-room-task3"><label for="living-room-task3"> Declutter TV stand and media center.</label></li>
+                            <li><input type="checkbox" id="living-room-task4"><label for="living-room-task4"> Dust all surfaces and electronics.</label></li>
+                            <li><input type="checkbox" id="living-room-task5"><label for="living-room-task5"> Vacuum and clean under furniture.</label></li>
+                            <li><input type="checkbox" id="living-room-task6"><label for="living-room-task6"> Sort and tidy up remote controls and gadgets.</label></li>
+                            <li><input type="checkbox" id="living-room-task7"><label for="living-room-task7"> Donate or store unused blankets and pillows.</label></li>
+                            <li><input type="checkbox" id="living-room-task8"><label for="living-room-task8"> Rearrange furniture for better flow.</label></li>
+                            <li><input type="checkbox" id="living-room-task9"><label for="living-room-task9"> Clean windows and blinds.</label></li>
+                            <li><input type="checkbox" id="living-room-task10"><label for="living-room-task10"> Evaluate and minimize decor items.</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions and Feedback -->
+                    <label for="living-room-question">What concerns do you have about decluttering your living room?</label>
+                    <textarea id="living-room-question" rows="4"></textarea>
+                    <label for="living-room-feedback">Is there anything holding you back from decluttering?</label>
+                    <textarea id="living-room-feedback" rows="4"></textarea>
+                    <label for="living-room-obstacles">How can you overcome those obstacles?</label>
+                    <textarea id="living-room-obstacles" rows="4"></textarea>
+                </div>
+
+                <!-- Example Section: Kitchen -->
+                <div class="section" id="kitchen" style="display: none;">
+                    <h2>Kitchen</h2>
+                    <video width="700px" src="kitchen-intro.mp4" controls></video>
+                    <p>The kitchen is the heart of the home, but it can quickly become cluttered with gadgets, utensils, and expired pantry items. One common mistake is keeping too many gadgets and rarely used items "just in case." Start by assessing which tools and appliances you use regularly and donate or store the rest. Remember, a clutter-free kitchen makes meal preparation easier and more enjoyable. Clearing your kitchen not only improves functionality but also creates a healthier, more pleasant environment for cooking and gathering.</p>
+
+                    <!-- Checklist -->
+                    <div class="checklist">
+                        <h3>Key Tasks</h3>
+                        <ul>
+                            <li><input type="checkbox" id="kitchen-task1"><label for="kitchen-task1"> Clear countertops of unused appliances.</label></li>
+                            <li><input type="checkbox" id="kitchen-task2"><label for="kitchen-task2"> Organize and declutter drawers and cabinets.</label></li>
+                            <li><input type="checkbox" id="kitchen-task3"><label for="kitchen-task3"> Clean and sanitize all surfaces.</label></li>
+                            <li><input type="checkbox" id="kitchen-task4"><label for="kitchen-task4"> Purge expired or unused pantry items.</label></li>
+                            <li><input type="checkbox" id="kitchen-task5"><label for="kitchen-task5"> Sort and organize pots, pans, and utensils.</label></li>
+                            <li><input type="checkbox" id="kitchen-task6"><label for="kitchen-task6"> Declutter under the sink and cleaning supplies.</label></li>
+                            <li><input type="checkbox" id="kitchen-task7"><label for="kitchen-task7"> Donate or recycle unused gadgets and dishes.</label></li>
+                            <li><input type="checkbox" id="kitchen-task8"><label for="kitchen-task8"> Clean out refrigerator and freezer.</label></li>
+                            <li><input type="checkbox" id="kitchen-task9"><label for="kitchen-task9"> Organize spices and condiments.</label></li>
+                            <li><input type="checkbox" id="kitchen-task10"><label for="kitchen-task10"> Deep clean the oven and microwave.</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions and Feedback -->
+                    <label for="kitchen-question">What concerns do you have about decluttering your kitchen?</label>
+                    <textarea id="kitchen-question" rows="4"></textarea>
+                    <label for="kitchen-feedback">Is there anything holding you back from decluttering?</label>
+                    <textarea id="kitchen-feedback" rows="4"></textarea>
+                    <label for="kitchen-obstacles">How can you overcome those obstacles?</label>
+                    <textarea id="kitchen-obstacles" rows="4"></textarea>
+                </div>
+
+                <!-- Example Section: Laundry Room -->
+                <div class="section" id="laundry-room" style="display: none;">
+                    <h2>Laundry Room</h2>
+                    <video width="700px" src="laundry-room-intro.mp4" controls></video>
+                    <p>The laundry room often gets overlooked, becoming a dumping ground for dirty clothes, cleaning supplies, and random items. A common mistake is letting this space become chaotic because it's not a primary living area. However, a well-organized laundry room can make chores feel less daunting and more efficient. Focus on decluttering shelves, organizing cleaning products, and creating a streamlined process for sorting and folding laundry. A tidy laundry room saves time and reduces stress, making this routine task much more manageable.</p>
+
+                    <!-- Checklist -->
+                    <div class="checklist">
+                        <h3>Key Tasks</h3>
+                        <ul>
+                            <li><input type="checkbox" id="laundry-room-task1"><label for="laundry-room-task1"> Organize cleaning supplies and detergents.</label></li>
+                            <li><input type="checkbox" id="laundry-room-task2"><label for="laundry-room-task2"> Clear off the tops of the washer and dryer.</label></li>
+                            <li><input type="checkbox" id="laundry-room-task3"><label for="laundry-room-task3"> Clean lint traps and vents.</label></li>
+                            <li><input type="checkbox" id="laundry-room-task4"><label for="laundry-room-task4"> Sort and fold laundry efficiently.</label></li>
+                            <li><input type="checkbox" id="laundry-room-task5"><label for="laundry-room-task5"> Declutter shelves and storage bins.</label></li>
+                            <li><input type="checkbox" id="laundry-room-task6"><label for="laundry-room-task6"> Clean floors and behind appliances.</label></li>
+                            <li><input type="checkbox" id="laundry-room-task7"><label for="laundry-room-task7"> Donate or dispose of old linens and rags.</label></li>
+                            <li><input type="checkbox" id="laundry-room-task8"><label for="laundry-room-task8"> Install storage solutions for small items.</label></li>
+                            <li><input type="checkbox" id="laundry-room-task9"><label for="laundry-room-task9"> Wipe down surfaces and appliances.</label></li>
+                            <li><input type="checkbox" id="laundry-room-task10"><label for="laundry-room-task10"> Reassess space utilization for efficiency.</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions and Feedback -->
+                    <label for="laundry-room-question">What concerns do you have about decluttering your laundry room?</label>
+                    <textarea id="laundry-room-question" rows="4"></textarea>
+                    <label for="laundry-room-feedback">Is there anything holding you back from decluttering?</label>
+                    <textarea id="laundry-room-feedback" rows="4"></textarea>
+                    <label for="laundry-room-obstacles">How can you overcome those obstacles?</label>
+                    <textarea id="laundry-room-obstacles" rows="4"></textarea>
+                </div>
+
+                <!-- Example Section: Pantry -->
+                <div class="section" id="pantry" style="display: none;">
+                    <h2>Pantry</h2>
+                    <video width="700px" src="pantry-intro.mp4" controls></video>
+                    <p>An organized pantry is crucial for efficient meal planning and reducing food waste. A common mistake is holding onto expired or unused items, thinking you'll use them someday. Start by clearing out everything, checking expiration dates, and sorting items by category. Use containers and labels to maintain order. Remember, a decluttered pantry not only helps you find what you need quickly but also saves money by preventing over-purchasing and ensuring you use what you have.</p>
+
+                    <!-- Checklist -->
+                    <div class="checklist">
+                        <h3>Key Tasks</h3>
+                        <ul>
+                            <li><input type="checkbox" id="pantry-task1"><label for="pantry-task1"> Remove expired and stale food items.</label></li>
+                            <li><input type="checkbox" id="pantry-task2"><label for="pantry-task2"> Organize shelves by category.</label></li>
+                            <li><input type="checkbox" id="pantry-task3"><label for="pantry-task3"> Clean and disinfect shelves and containers.</label></li>
+                            <li><input type="checkbox" id="pantry-task4"><label for="pantry-task4"> Transfer bulk items into labeled containers.</label></li>
+                            <li><input type="checkbox" id="pantry-task5"><label for="pantry-task5"> Declutter non-food items and utensils.</label></li>
+                            <li><input type="checkbox" id="pantry-task6"><label for="pantry-task6"> Reorganize based on frequency of use.</label></li>
+                            <li><input type="checkbox" id="pantry-task7"><label for="pantry-task7"> Donate unexpired, unwanted food items.</label></li>
+                            <li><input type="checkbox" id="pantry-task8"><label for="pantry-task8"> Group similar items together.</label></li>
+                            <li><input type="checkbox" id="pantry-task9"><label for="pantry-task9"> Install shelf liners and storage solutions.</label></li>
+                            <li><input type="checkbox" id="pantry-task10"><label for="pantry-task10"> Plan for maintaining pantry organization.</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions and Feedback -->
+                    <label for="pantry-question">What concerns do you have about decluttering your pantry?</label>
+                    <textarea id="pantry-question" rows="4"></textarea>
+                    <label for="pantry-feedback">Is there anything holding you back from decluttering?</label>
+                    <textarea id="pantry-feedback" rows="4"></textarea>
+                    <label for="pantry-obstacles">How can you overcome those obstacles?</label>
+                    <textarea id="pantry-obstacles" rows="4"></textarea>
+                </div>
+
+                <!-- Example Section: Closets -->
+                <div class="section" id="closets" style="display: none;">
+                    <h2>Closets</h2>
+                    <video width="700px" src="closets-intro.mp4" controls></video>
+                    <p>Closets are prime spots for clutter because it's easy to close the door and forget about the mess. The common mistake here is keeping clothes that no longer fit or suit your style, hoping you'll wear them someday. Start by removing everything and making decisions based on what you currently love and wear. Use this opportunity to donate items and make space for what truly serves you. A decluttered closet saves time in the morning and makes getting dressed a joy.</p>
+
+                    <!-- Checklist -->
+                    <div class="checklist">
+                        <h3>Key Tasks</h3>
+                        <ul>
+                            <li><input type="checkbox" id="closets-task1"><label for="closets-task1"> Remove all items and assess for necessity.</label></li>
+                            <li><input type="checkbox" id="closets-task2"><label for="closets-task2"> Sort clothes into keep, donate, and discard piles.</label></li>
+                            <li><input type="checkbox" id="closets-task3"><label for="closets-task3"> Organize by season and type.</label></li>
+                            <li><input type="checkbox" id="closets-task4"><label for="closets-task4"> Clean and vacuum closet floors and shelves.</label></li>
+                            <li><input type="checkbox" id="closets-task5"><label for="closets-task5"> Install additional shelving or organizers as needed.</label></li>
+                            <li><input type="checkbox" id="closets-task6"><label for="closets-task6"> Store less frequently used items in bins or boxes.</label></li>
+                            <li><input type="checkbox" id="closets-task7"><label for="closets-task7"> Use matching hangers to optimize space.</label></li>
+                            <li><input type="checkbox" id="closets-task8"><label for="closets-task8"> Arrange shoes in racks or boxes.</label></li>
+                            <li><input type="checkbox" id="closets-task9"><label for="closets-task9"> Reevaluate accessories and small items.</label></li>
+                            <li><input type="checkbox" id="closets-task10"><label for="closets-task10"> Plan for seasonal closet maintenance.</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions and Feedback -->
+                    <label for="closets-question">What concerns do you have about decluttering your closets?</label>
+                    <textarea id="closets-question" rows="4"></textarea>
+                    <label for="closets-feedback">Is there anything holding you back from decluttering?</label>
+                    <textarea id="closets-feedback" rows="4"></textarea>
+                    <label for="closets-obstacles">How can you overcome those obstacles?</label>
+                    <textarea id="closets-obstacles" rows="4"></textarea>
+                </div>
+
+                <!-- Example Section: Bedrooms -->
+                <div class="section" id="bedrooms" style="display: none;">
+                    <h2>Bedrooms</h2>
+                    <video width="700px" src="bedrooms-intro.mp4" controls></video>
+                    <p>Bedrooms should be a sanctuary for rest and relaxation, yet they often become cluttered with clothes, personal items, and decor. A common mistake is allowing the bedroom to become a secondary storage space, which disrupts the peacefulness of the room. Start by removing anything that doesn't contribute to rest or relaxation. Keep surfaces clear, and use smart storage solutions to keep necessities within reach without overcrowding the space. A decluttered bedroom promotes better sleep and a more calming environment.</p>
+
+                    <!-- Checklist -->
+                    <div class="checklist">
+                        <h3>Key Tasks</h3>
+                        <ul>
+                            <li><input type="checkbox" id="bedrooms-task1"><label for="bedrooms-task1"> Remove and declutter bedside tables.</label></li>
+                            <li><input type="checkbox" id="bedrooms-task2"><label for="bedrooms-task2"> Organize clothing in drawers and closets.</label></li>
+                            <li><input type="checkbox" id="bedrooms-task3"><label for="bedrooms-task3"> Sort and minimize personal items and decor.</label></li>
+                            <li><input type="checkbox" id="bedrooms-task4"><label for="bedrooms-task4"> Clean and vacuum floors, especially under the bed.</label></li>
+                            <li><input type="checkbox" id="bedrooms-task5"><label for="bedrooms-task5"> Organize and declutter the dresser top.</label></li>
+                            <li><input type="checkbox" id="bedrooms-task6"><label for="bedrooms-task6"> Reassess bedding and linens for necessity.</label></li>
+                            <li><input type="checkbox" id="bedrooms-task7"><label for="bedrooms-task7"> Dust and clean light fixtures and fans.</label></li>
+                            <li><input type="checkbox" id="bedrooms-task8"><label for="bedrooms-task8"> Store seasonal items in accessible locations.</label></li>
+                            <li><input type="checkbox" id="bedrooms-task9"><label for="bedrooms-task9"> Evaluate and reorganize under-bed storage.</label></li>
+                            <li><input type="checkbox" id="bedrooms-task10"><label for="bedrooms-task10"> Plan for regular bedroom maintenance.</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions and Feedback -->
+                    <label for="bedrooms-question">What concerns do you have about decluttering your bedrooms?</label>
+                    <textarea id="bedrooms-question" rows="4"></textarea>
+                    <label for="bedrooms-feedback">Is there anything holding you back from decluttering?</label>
+                    <textarea id="bedrooms-feedback" rows="4"></textarea>
+                    <label for="bedrooms-obstacles">How can you overcome those obstacles?</label>
+                    <textarea id="bedrooms-obstacles" rows="4"></textarea>
+                </div>
+
+                <!-- Example Section: Bathrooms -->
+                <div class="section" id="bathrooms" style="display: none;">
+                    <h2>Bathrooms</h2>
+                    <video width="700px" src="bathrooms-intro.mp4" controls></video>
+                    <p>Bathrooms can quickly fill up with products and supplies, often far more than we actually use. A common mistake is holding onto expired or unwanted toiletries, thinking you might need them someday. Focus on keeping only the essentials and storing them in an organized manner for easy access. Regularly check expiration dates and clear out old products. A decluttered bathroom is not only more hygienic but also feels more spacious and spa-like, making your daily routines more enjoyable.</p>
+
+                    <!-- Checklist -->
+                    <div class="checklist">
+                        <h3>Key Tasks</h3>
+                        <ul>
+                            <li><input type="checkbox" id="bathrooms-task1"><label for="bathrooms-task1"> Remove expired or unused toiletries and medications.</label></li>
+                            <li><input type="checkbox" id="bathrooms-task2"><label for="bathrooms-task2"> Organize items under the sink and in cabinets.</label></li>
+                            <li><input type="checkbox" id="bathrooms-task3"><label for="bathrooms-task3"> Declutter shower and bath area of unused products.</label></li>
+                            <li><input type="checkbox" id="bathrooms-task4"><label for="bathrooms-task4"> Clean and disinfect all surfaces, including mirrors.</label></li>
+                            <li><input type="checkbox" id="bathrooms-task5"><label for="bathrooms-task5"> Sort and organize towels and linens.</label></li>
+                            <li><input type="checkbox" id="bathrooms-task6"><label for="bathrooms-task6"> Reassess bathroom decor for functionality.</label></li>
+                            <li><input type="checkbox" id="bathrooms-task7"><label for="bathrooms-task7"> Dispose of old or broken bathroom accessories.</label></li>
+                            <li><input type="checkbox" id="bathrooms-task8"><label for="bathrooms-task8"> Organize makeup and grooming tools.</label></li>
+                            <li><input type="checkbox" id="bathrooms-task9"><label for="bathrooms-task9"> Deep clean the toilet, sink, and tub/shower.</label></li>
+                            <li><input type="checkbox" id="bathrooms-task10"><label for="bathrooms-task10"> Plan for ongoing bathroom maintenance.</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions and Feedback -->
+                    <label for="bathrooms-question">What concerns do you have about decluttering your bathrooms?</label>
+                    <textarea id="bathrooms-question" rows="4"></textarea>
+                    <label for="bathrooms-feedback">Is there anything holding you back from decluttering?</label>
+                    <textarea id="bathrooms-feedback" rows="4"></textarea>
+                    <label for="bathrooms-obstacles">How can you overcome those obstacles?</label>
+                    <textarea id="bathrooms-obstacles" rows="4"></textarea>
+                </div>
+
+                <!-- Example Section: Basements/Attics -->
+                <div class="section" id="basements-attics" style="display: none;">
+                    <h2>Basements/Attics</h2>
+                    <video width="700px" src="basements-attics-intro.mp4" controls></video>
+                    <p>Basements and attics are often the most cluttered spaces because they become dumping grounds for items we don't use frequently but aren't ready to part with. A common mistake is holding onto things for sentimental reasons or out of a "just in case" mentality. Start by sorting items into categories and consider if they've served their purpose. Keep only what truly adds value to your life. Decluttering these spaces can open up new possibilities for use and give you a sense of accomplishment.</p>
+
+                    <!-- Checklist -->
+                    <div class="checklist">
+                        <h3>Key Tasks</h3>
+                        <ul>
+                            <li><input type="checkbox" id="basements-attics-task1"><label for="basements-attics-task1"> Sort items into keep, donate, sell, or dispose of categories.</label></li>
+                            <li><input type="checkbox" id="basements-attics-task2"><label for="basements-attics-task2"> Organize seasonal decorations and store them properly.</label></li>
+                            <li><input type="checkbox" id="basements-attics-task3"><label for="basements-attics-task3"> Dispose of broken or non-functional items.</label></li>
+                            <li><input type="checkbox" id="basements-attics-task4"><label for="basements-attics-task4"> Install shelving or racks for better organization.</label></li>
+                            <li><input type="checkbox" id="basements-attics-task5"><label for="basements-attics-task5"> Label storage bins and boxes clearly.</label></li>
+                            <li><input type="checkbox" id="basements-attics-task6"><label for="basements-attics-task6"> Clean floors, walls, and any surfaces.</label></li>
+                            <li><input type="checkbox" id="basements-attics-task7"><label for="basements-attics-task7"> Organize tools and hardware neatly.</label></li>
+                            <li><input type="checkbox" id="basements-attics-task8"><label for="basements-attics-task8"> Create designated zones for different types of items.</label></li>
+                            <li><input type="checkbox" id="basements-attics-task9"><label for="basements-attics-task9"> Reassess items in storage periodically to prevent clutter.</label></li>
+                            <li><input type="checkbox" id="basements-attics-task10"><label for="basements-attics-task10"> Plan for regular basement/attic decluttering sessions.</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions and Feedback -->
+                    <label for="basements-attics-question">What concerns do you have about decluttering your basements/attics?</label>
+                    <textarea id="basements-attics-question" rows="4"></textarea>
+                    <label for="basements-attics-feedback">Is there anything holding you back from decluttering?</label>
+                    <textarea id="basements-attics-feedback" rows="4"></textarea>
+                    <label for="basements-attics-obstacles">How can you overcome those obstacles?</label>
+                    <textarea id="basements-attics-obstacles" rows="4"></textarea>
+                </div>
+
+                <!-- Example Section: Garages -->
+                <div class="section" id="garages" style="display: none;">
+                    <h2>Garages</h2>
+                    <video width="700px" src="garages-intro.mp4" controls></video>
+                    <p>Garages tend to accumulate everything from tools to sports equipment and holiday decorations, often turning into a cluttered mess. The common mistake is treating the garage as an overflow storage space rather than a functional area. Begin by emptying the space and categorizing items based on necessity and frequency of use. Install shelves or hooks for better organization and easy access. A decluttered garage not only protects your vehicle but also provides a more usable space for hobbies and projects.</p>
+
+                    <!-- Checklist -->
+                    <div class="checklist">
+                        <h3>Key Tasks</h3>
+                        <ul>
+                            <li><input type="checkbox" id="garages-task1"><label for="garages-task1"> Clear out the garage and assess each item.</label></li>
+                            <li><input type="checkbox" id="garages-task2"><label for="garages-task2"> Sort items into keep, donate, sell, or discard piles.</label></li>
+                            <li><input type="checkbox" id="garages-task3"><label for="garages-task3"> Install shelving units or pegboards for tools.</label></li>
+                            <li><input type="checkbox" id="garages-task4"><label for="garages-task4"> Organize sports equipment and outdoor gear.</label></li>
+                            <li><input type="checkbox" id="garages-task5"><label for="garages-task5"> Dispose of hazardous materials properly.</label></li>
+                            <li><input type="checkbox" id="garages-task6"><label for="garages-task6"> Sweep and clean garage floor thoroughly.</label></li>
+                            <li><input type="checkbox" id="garages-task7"><label for="garages-task7"> Label bins and storage containers clearly.</label></li>
+                            <li><input type="checkbox" id="garages-task8"><label for="garages-task8"> Create zones for different types of items (e.g., tools, gardening, car care).</label></li>
+                            <li><input type="checkbox" id="garages-task9"><label for="garages-task9"> Reassess large items like bikes and outdoor furniture for necessity.</label></li>
+                            <li><input type="checkbox" id="garages-task10"><label for="garages-task10"> Plan for routine garage cleaning and organizing.</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions and Feedback -->
+                    <label for="garages-question">What concerns do you have about decluttering your garage?</label>
+                    <textarea id="garages-question" rows="4"></textarea>
+                    <label for="garages-feedback">Is there anything holding you back from decluttering?</label>
+                    <textarea id="garages-feedback" rows="4"></textarea>
+                    <label for="garages-obstacles">How can you overcome those obstacles?</label>
+                    <textarea id="garages-obstacles" rows="4"></textarea>
+                </div>
+
+                <!-- Example Section: Front/Back Yards -->
+                <div class="section" id="front-back-yards" style="display: none;">
+                    <h2>Front/Back Yards</h2>
+                    <video width="700px" src="front-back-yards-intro.mp4" controls></video>
+                    <p>Your front and back yards are extensions of your home and should be welcoming and functional, but they can easily become cluttered with toys, tools, and unused furniture. A common mistake is neglecting these spaces because they are outside the main living areas. Focus on creating an inviting outdoor environment by clearing away debris, organizing gardening tools, and maintaining the landscape. A decluttered yard enhances curb appeal and provides a more enjoyable outdoor space for relaxation and entertainment.</p>
+
+                    <!-- Checklist -->
+                    <div class="checklist">
+                        <h3>Key Tasks</h3>
+                        <ul>
+                            <li><input type="checkbox" id="front-back-yards-task1"><label for="front-back-yards-task1"> Remove any broken or unused outdoor furniture.</label></li>
+                            <li><input type="checkbox" id="front-back-yards-task2"><label for="front-back-yards-task2"> Organize gardening tools and equipment.</label></li>
+                            <li><input type="checkbox" id="front-back-yards-task3"><label for="front-back-yards-task3"> Dispose of old pots, planters, and soil bags.</label></li>
+                            <li><input type="checkbox" id="front-back-yards-task4"><label for="front-back-yards-task4"> Store seasonal items in sheds or storage bins.</label></li>
+                            <li><input type="checkbox" id="front-back-yards-task5"><label for="front-back-yards-task5"> Declutter children's toys and outdoor games.</label></li>
+                            <li><input type="checkbox" id="front-back-yards-task6"><label for="front-back-yards-task6"> Weed and tidy up garden beds and paths.</label></li>
+                            <li><input type="checkbox" id="front-back-yards-task7"><label for="front-back-yards-task7"> Clean and maintain outdoor lighting fixtures.</label></li>
+                            <li><input type="checkbox" id="front-back-yards-task8"><label for="front-back-yards-task8"> Dispose of dead plants and garden waste.</label></li>
+                            <li><input type="checkbox" id="front-back-yards-task9"><label for="front-back-yards-task9"> Prune trees and shrubs for better space management.</label></li>
+                            <li><input type="checkbox" id="front-back-yards-task10"><label for="front-back-yards-task10"> Plan for regular yard maintenance and decluttering.</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions and Feedback -->
+                    <label for="front-back-yards-question">What concerns do you have about decluttering your front/back yards?</label>
+                    <textarea id="front-back-yards-question" rows="4"></textarea>
+                    <label for="front-back-yards-feedback">Is there anything holding you back from decluttering?</label>
+                    <textarea id="front-back-yards-feedback" rows="4"></textarea>
+                    <label for="front-back-yards-obstacles">How can you overcome those obstacles?</label>
+                    <textarea id="front-back-yards-obstacles" rows="4"></textarea>
+                </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
